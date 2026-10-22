@@ -6,9 +6,8 @@
 
 <!--
   TEKFRIO REFRIGERACAO E CLIMATIZACAO
-  Contatos ficam em UM lugar: CONFIG, no topo do script.js
-  (whatsapp e link de agendamento). Enquanto vazios, os botoes abrem o
-  Direct do Instagram e o botao de agendamento nao aparece.
+  Contatos ficam em UM lugar: CONFIG, no topo do script.js (WhatsApp de
+  cada unidade e link de agendamento, tirados do Linktree oficial).
   Antes de publicar: troque o dominio (marcado com TROCAR). Ver README.md.
 -->
 
@@ -46,7 +45,7 @@
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add('js');</script>
 
-<!-- Sem telefone nem endereco ate serem confirmados. Ver README.md. -->
+<!-- Telefones das 3 unidades: os do Linktree oficial (linktr.ee/tekfriooficial). Sem endereco. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,7 +60,16 @@
     { "@type": "City", "name": "Torres" }
   ],
   "address": { "@type": "PostalAddress", "addressRegion": "RS", "addressCountry": "BR" },
-  "sameAs": ["https://www.instagram.com/tekfriooficial/"]
+  "contactPoint": [
+    { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+55 53 99945-8966", "areaServed": "Rio Grande - RS" },
+    { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+55 53 98145-4087", "areaServed": "São José do Norte - RS" },
+    { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+55 51 98220-6823", "areaServed": "Torres - RS" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/tekfriooficial/",
+    "https://www.facebook.com/profile.php?id=61551837441297",
+    "https://www.youtube.com/channel/UCFQ80z4IeTAPRrrs7WVr80w"
+  ]
 }
 </script>
 </head>
@@ -80,6 +88,8 @@
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5l0 14" /> <path d="M5 12l14 0" /></symbol>
 <symbol id="i-snowflake" viewBox="0 0 24 24"><path d="M10 4l2 1l2 -1" /> <path d="M12 2v6.5l3 1.72" /> <path d="M17.928 6.268l.134 2.232l1.866 1.232" /> <path d="M20.66 7l-5.629 3.25l.01 3.458" /> <path d="M19.928 14.268l-1.866 1.232l-.134 2.232" /> <path d="M20.66 17l-5.629 -3.25l-2.99 1.738" /> <path d="M14 20l-2 -1l-2 1" /> <path d="M12 22v-6.5l-3 -1.72" /> <path d="M6.072 17.732l-.134 -2.232l-1.866 -1.232" /> <path d="M3.34 17l5.629 -3.25l-.01 -3.458" /> <path d="M4.072 9.732l1.866 -1.232l.134 -2.232" /> <path d="M3.34 7l5.629 3.25l2.99 -1.738" /></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12" /> <path d="M6 6l12 12" /></symbol>
+<symbol id="i-brand-facebook" viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></symbol>
+<symbol id="i-brand-youtube" viewBox="0 0 24 24"><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /> <path d="M10 9l5 3l-5 3z" /></symbol>
 </svg>
 
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -102,7 +112,7 @@
       </ul>
     </nav>
 
-    <a class="btn btn--yellow btn--sm header__cta" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">Solicitar orçamento</a>
+    <a class="btn btn--yellow btn--sm header__cta" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Solicitar orçamento</a>
 
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg class="icon" aria-hidden="true"><use href="#i-menu-2"/></svg>
@@ -120,8 +130,8 @@
         <li><a href="#duvidas">Dúvidas</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
-      <a class="btn btn--yellow btn--block" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
-        <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-instagram"/></svg>
+      <a class="btn btn--yellow btn--block" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-whatsapp"/></svg>
         Solicitar orçamento
       </a>
     </nav>
@@ -138,8 +148,8 @@
         <h1 class="hero__title" id="hero-title" data-enter>Mais conforto. Mais eficiência. <span class="hero__mark">Mais tranquilidade.</span></h1>
         <p class="hero__lead" data-enter>Há 10 anos oferecendo soluções em refrigeração e climatização, com atendimento em Rio Grande, São José do Norte e Torres.</p>
         <div class="hero__actions" data-enter>
-          <a class="btn btn--yellow btn--lg" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-instagram"/></svg>
+          <a class="btn btn--yellow btn--lg" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-whatsapp"/></svg>
             Solicitar orçamento
           </a>
           <a class="btn btn--outline btn--lg" href="#servicos">
@@ -209,7 +219,7 @@
               <p class="svc__num">01</p>
               <h3 class="svc__title">Climatização</h3>
               <p class="svc__text">Soluções para climatização de ambientes residenciais e comerciais, conforme as necessidades de cada projeto.</p>
-              <a class="btn btn--yellow" data-wa="climatizacao" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
+              <a class="btn btn--yellow" data-wa="climatizacao" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
                 Consultar serviço<span class="sr-only"> de climatização</span>
                 <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
               </a>
@@ -223,7 +233,7 @@
               <p class="svc__num">02</p>
               <h3 class="svc__title">Refrigeração</h3>
               <p class="svc__text">Consulte as opções de atendimento para equipamentos e sistemas de refrigeração.</p>
-              <a class="btn btn--yellow" data-wa="refrigeracao" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
+              <a class="btn btn--yellow" data-wa="refrigeracao" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
                 Solicitar orçamento<span class="sr-only"> de refrigeração</span>
                 <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
               </a>
@@ -237,7 +247,7 @@
               <p class="svc__num">03</p>
               <h3 class="svc__title">Instalação e infraestrutura</h3>
               <p class="svc__text">Planejamento e execução de instalações conforme as características do ambiente e os requisitos técnicos do equipamento.</p>
-              <a class="btn btn--yellow" data-wa="instalacao" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
+              <a class="btn btn--yellow" data-wa="instalacao" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
                 Orçar instalação
                 <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
               </a>
@@ -251,7 +261,7 @@
               <p class="svc__num">04</p>
               <h3 class="svc__title">Manutenção e higienização</h3>
               <p class="svc__text">Cuidados técnicos para ajudar a manter o funcionamento e as condições adequadas dos equipamentos.</p>
-              <a class="btn btn--yellow" data-wa="manutencao" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
+              <a class="btn btn--yellow" data-wa="manutencao" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
                 Consultar manutenção
                 <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
               </a>
@@ -300,8 +310,8 @@
         </li>
       </ol>
       <div class="how__actions" data-reveal>
-        <a class="btn btn--navy btn--lg" data-wa="falar" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
-          <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-instagram"/></svg>
+        <a class="btn btn--navy btn--lg" data-wa="falar" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-whatsapp"/></svg>
           Falar com a TekFrio
         </a>
         <a class="btn btn--outline btn--lg" data-booking href="#" target="_blank" rel="noopener" hidden>
@@ -361,17 +371,17 @@
           <li class="city">
             <svg class="icon city__icon" aria-hidden="true"><use href="#i-map-pin"/></svg>
             <p class="city__name">Rio Grande <span>RS</span></p>
-            <a class="btn btn--outline btn--sm" data-wa="rio-grande" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">Consultar atendimento<span class="sr-only"> em Rio Grande</span></a>
+            <a class="btn btn--outline btn--sm" data-wa="rio-grande" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Consultar atendimento<span class="sr-only"> em Rio Grande</span></a>
           </li>
           <li class="city">
             <svg class="icon city__icon" aria-hidden="true"><use href="#i-map-pin"/></svg>
             <p class="city__name">São José do Norte <span>RS</span></p>
-            <a class="btn btn--outline btn--sm" data-wa="sao-jose-do-norte" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">Consultar atendimento<span class="sr-only"> em São José do Norte</span></a>
+            <a class="btn btn--outline btn--sm" data-wa="sao-jose-do-norte" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Consultar atendimento<span class="sr-only"> em São José do Norte</span></a>
           </li>
           <li class="city">
             <svg class="icon city__icon" aria-hidden="true"><use href="#i-map-pin"/></svg>
             <p class="city__name">Torres <span>RS</span></p>
-            <a class="btn btn--outline btn--sm" data-wa="torres" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">Consultar atendimento<span class="sr-only"> em Torres</span></a>
+            <a class="btn btn--outline btn--sm" data-wa="torres" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Consultar atendimento<span class="sr-only"> em Torres</span></a>
           </li>
         </ul>
       </div>
@@ -385,11 +395,11 @@
       <div class="faq__list" data-reveal>
         <details class="qa" name="faq">
           <summary>Quais serviços a TekFrio oferece?<span class="qa__icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
-          <div class="qa__body"><p>A TekFrio atua com refrigeração e climatização. Para saber se o serviço que você precisa está disponível, consulte a equipe pelo <span data-channel>Instagram</span>.</p></div>
+          <div class="qa__body"><p>A TekFrio atua com refrigeração e climatização. Para saber se o serviço que você precisa está disponível, consulte a equipe pelo <span data-channel>WhatsApp</span>.</p></div>
         </details>
         <details class="qa" name="faq">
           <summary>Como solicitar um orçamento?<span class="qa__icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
-          <div class="qa__body"><p>Pelo <a class="text-link" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener"><span data-channel>Instagram</span></a>. Conte qual serviço você procura e compartilhe detalhes do ambiente ou do equipamento, como fotos e o modelo do aparelho.</p></div>
+          <div class="qa__body"><p>Pelo <a class="text-link" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener"><span data-channel>WhatsApp</span></a>. Conte qual serviço você procura e compartilhe detalhes do ambiente ou do equipamento, como fotos e o modelo do aparelho.</p></div>
         </details>
         <details class="qa" name="faq">
           <summary>Quais cidades são atendidas?<span class="qa__icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
@@ -397,7 +407,7 @@
         </details>
         <details class="qa" name="faq">
           <summary>Como agendar um serviço?<span class="qa__icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
-          <div class="qa__body"><p>Fale com a equipe pelo <a class="text-link" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener"><span data-channel>Instagram</span></a> para combinar o atendimento.<span data-booking-only hidden> Você também pode usar o <a class="text-link" data-booking href="#" target="_blank" rel="noopener">link de agendamento</a>.</span></p></div>
+          <div class="qa__body"><p>Fale com a equipe pelo <a class="text-link" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener"><span data-channel>WhatsApp</span></a> para combinar o atendimento.<span data-booking-only hidden> Você também pode agendar pelo <a class="text-link" data-booking href="#" target="_blank" rel="noopener">link do perfil</a>.</span></p></div>
         </details>
         <details class="qa" name="faq">
           <summary>Como saber qual solução é adequada para meu equipamento?<span class="qa__icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
@@ -405,7 +415,7 @@
         </details>
         <details class="qa" name="faq">
           <summary>Como entrar em contato com a equipe?<span class="qa__icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
-          <div class="qa__body"><p>Pelo <a class="text-link" data-wa="duvida" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener"><span data-channel>Instagram</span></a> ou pelo perfil <a class="text-link" href="https://www.instagram.com/tekfriooficial/" target="_blank" rel="noopener">@tekfriooficial</a>.</p></div>
+          <div class="qa__body"><p>Pelo <span data-channel>WhatsApp</span> da unidade da sua cidade: <a class="text-link" data-wa="rio-grande" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Rio Grande</a>, <a class="text-link" data-wa="sao-jose-do-norte" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">São José do Norte</a> ou <a class="text-link" data-wa="torres" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Torres</a>. A TekFrio também está no Instagram, em <a class="text-link" href="https://www.instagram.com/tekfriooficial/" target="_blank" rel="noopener">@tekfriooficial</a>.</p></div>
         </details>
       </div>
     </div>
@@ -419,8 +429,8 @@
           <h2 class="cta__title" id="cta-title">Qualidade e agilidade para o seu próximo projeto.</h2>
           <p class="cta__text">Entre em contato com a TekFrio e consulte as opções de atendimento para sua necessidade.</p>
           <div class="cta__actions">
-            <a class="btn btn--yellow btn--lg" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-instagram"/></svg>
+            <a class="btn btn--yellow btn--lg" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-whatsapp"/></svg>
               Solicitar orçamento
             </a>
             <a class="btn btn--outline-light btn--lg" data-booking href="#" target="_blank" rel="noopener" hidden>
@@ -472,20 +482,40 @@
     <div class="footer__col">
       <h2 class="footer__h">Contato</h2>
       <ul>
-        <!-- Aparecem sozinhos quando CONFIG.whatsapp e CONFIG.agendamento forem preenchidos -->
-        <li data-wa-only hidden>
-          <a data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg><span data-wa-number></span>
+        <!-- WhatsApp de cada unidade e agendamento aparecem sozinhos a partir do CONFIG do script.js -->
+        <li data-wa-city="rio-grande" hidden>
+          <a data-wa="rio-grande" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg><span>Rio Grande <span class="footer__num" data-wa-number="rio-grande"></span></span>
+          </a>
+        </li>
+        <li data-wa-city="sao-jose-do-norte" hidden>
+          <a data-wa="sao-jose-do-norte" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg><span>São José do Norte <span class="footer__num" data-wa-number="sao-jose-do-norte"></span></span>
+          </a>
+        </li>
+        <li data-wa-city="torres" hidden>
+          <a data-wa="torres" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg><span>Torres <span class="footer__num" data-wa-number="torres"></span></span>
           </a>
         </li>
         <li data-booking-only hidden>
           <a data-booking href="#" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="#i-calendar-event"/></svg>Agendamento online
+            <svg class="icon" aria-hidden="true"><use href="#i-calendar-event"/></svg>Agende pelo link
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/tekfriooficial/" target="_blank" rel="noopener">
             <svg class="icon" aria-hidden="true"><use href="#i-brand-instagram"/></svg>@tekfriooficial
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=61551837441297" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-brand-facebook"/></svg>Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/channel/UCFQ80z4IeTAPRrrs7WVr80w" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-brand-youtube"/></svg>YouTube
           </a>
         </li>
       </ul>
@@ -499,17 +529,31 @@
 </footer>
 
 <!-- Botao flutuante (desktop) -->
-<a class="float-btn" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener" aria-label="Falar com a TekFrio">
-  <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-instagram"/></svg>
+<a class="float-btn" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener" aria-label="Falar com a TekFrio">
+  <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-whatsapp"/></svg>
 </a>
 
 <!-- Barra fixa (celular): CTA de orcamento + atalho redondo de contato -->
 <div class="mbar" aria-hidden="true">
-  <a class="btn btn--yellow mbar__cta" tabindex="-1" data-wa="geral" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener">Solicitar orçamento</a>
-  <a class="mbar__round" tabindex="-1" data-wa="falar" href="https://ig.me/m/tekfriooficial" target="_blank" rel="noopener" aria-label="Falar com a TekFrio">
-    <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-instagram"/></svg>
+  <a class="btn btn--yellow mbar__cta" tabindex="-1" data-wa="geral" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener">Solicitar orçamento</a>
+  <a class="mbar__round" tabindex="-1" data-wa="falar" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener" aria-label="Falar com a TekFrio">
+    <svg class="icon" aria-hidden="true"><use data-channel-icon href="#i-brand-whatsapp"/></svg>
   </a>
 </div>
+
+<!-- Escolha da unidade: os botoes gerais abrem esta janela quando ha mais de um WhatsApp no CONFIG -->
+<dialog class="units" aria-labelledby="units-title">
+  <div class="units__card">
+    <button class="units__close" type="button" aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <h2 class="units__title" id="units-title">Escolha sua cidade</h2>
+    <p class="units__text">Cada unidade da TekFrio tem o seu WhatsApp de atendimento.</p>
+    <ul class="units__list">
+      <li><a class="units__opt" data-unit="rio-grande" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span class="units__name">Rio Grande<span data-wa-number="rio-grande"></span></span><svg class="icon units__go" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></a></li>
+      <li><a class="units__opt" data-unit="sao-jose-do-norte" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span class="units__name">São José do Norte<span data-wa-number="sao-jose-do-norte"></span></span><svg class="icon units__go" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></a></li>
+      <li><a class="units__opt" data-unit="torres" href="https://linktr.ee/tekfriooficial" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span class="units__name">Torres<span data-wa-number="torres"></span></span><svg class="icon units__go" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></a></li>
+    </ul>
+  </div>
+</dialog>
 
 <!-- Galeria ampliada -->
 <dialog class="lightbox" aria-label="Foto ampliada">

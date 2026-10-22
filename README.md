@@ -13,40 +13,45 @@ favicon.svg    ícone da aba
 
 ---
 
-## 1. Ligar WhatsApp e agendamento
+## 1. Contatos (já configurados)
 
-Os dois contatos ficam em **um único lugar**, no topo do `script.js`:
+Tudo fica em **um único lugar**, no topo do `script.js`. Os dados vêm do Linktree oficial
+da TekFrio (`linktr.ee/tekfriooficial`), que é o link "Agende pelo link" da bio:
 
 ```js
 const CONFIG = {
-  whatsapp: '',     // ex.: '5553987654321'  (55 + DDD + número, só dígitos)
-  agendamento: '',  // o link de agendamento do perfil, completo: 'https://...'
+  whatsapp: {
+    'rio-grande': '5553999458966',          // (53) 99945-8966
+    'sao-jose-do-norte': '5553981454087',   // (53) 98145-4087
+    torres: '5551982206823',                // (51) 98220-6823
+  },
+  agendamento: 'https://linktr.ee/tekfriooficial',
   ...
 };
 ```
 
-- **WhatsApp vazio (hoje):** os 19 botões abrem o Direct do Instagram
-  (`ig.me/m/tekfriooficial`) e os textos dizem "Instagram". Nenhum número inventado.
-- **WhatsApp preenchido:** todos viram `wa.me` com mensagem por contexto (geral, cada
-  categoria, cada cidade, "falar com a equipe", dúvida); os textos passam a dizer
-  "WhatsApp" e o número aparece formatado no rodapé.
-- **Agendamento vazio (hoje):** nenhum botão de agendamento aparece.
-- **Agendamento preenchido:** aparecem "Agendar atendimento" (Como funciona), "Agendar"
-  (chamada final), "Agendamento online" (rodapé) e uma frase na pergunta "Como agendar
-  um serviço?". Só aceita link que começa com `https://`.
+- **Botões de cidade** (seção Regiões, FAQ, rodapé) abrem o WhatsApp daquela unidade com
+  a mensagem da cidade.
+- **Botões gerais** (orçamento, serviços, "Falar com a TekFrio", flutuante, barra do
+  celular) abrem a janela **"Escolha sua cidade"** e levam ao WhatsApp escolhido com a
+  mensagem do botão clicado.
+- Se a empresa passar a usar um número só, troque o objeto por uma string
+  (`whatsapp: '55...'`): a janela some e todos os botões vão direto para ele.
+- Sem nenhum número válido, os botões abrem o Direct do Instagram.
+- Sem JavaScript, os botões levam ao Linktree, que tem os três WhatsApps.
+- **Agendamento:** "Agendar atendimento", "Agendar", "Agende pelo link" (rodapé) e a frase
+  da pergunta "Como agendar um serviço?" apontam para o Linktree.
 
-As mensagens estão em `MESSAGES`, logo abaixo do `CONFIG`.
-
-Com o telefone confirmado, adicione também `"telephone"` ao JSON-LD no `<head>`.
+As mensagens estão em `MESSAGES`, logo abaixo do `CONFIG`. Os três telefones também
+estão no JSON-LD do `<head>` (`contactPoint`); se mudarem, atualize os dois lugares.
 
 ## 2. Antes de publicar
 
 | # | O que | Onde |
 |---|---|---|
-| 1 | WhatsApp e link de agendamento | `script.js`, `CONFIG` |
-| 2 | Domínio | `index.html`: `canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD (marcados `TROCAR`). Hoje: `https://tekfrio.com.br/` |
-| 3 | **Serviços de cada categoria** | ver seção 3 |
-| 4 | Fotos reais | ver seção 4 |
+| 1 | Domínio | `index.html`: `canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD (marcados `TROCAR`). Hoje: `https://tekfrio.com.br/` |
+| 2 | **Serviços de cada categoria** | ver seção 3 |
+| 3 | Fotos reais e logotipo | ver seção 4. O logotipo atual (pinguim + TEKFRIO) não foi usado por falta do arquivo em boa resolução |
 
 ## 3. Categorias de serviço
 

@@ -1,12 +1,18 @@
 /* =========================================================================
    CONFIGURACAO: o unico lugar para mexer nos contatos.
-   whatsapp:    so digitos, com 55 + DDD + numero. Ex.: '5553987654321'.
-   agendamento: o link de agendamento do perfil, completo (https://...).
-   Vazios: os botoes abrem o Direct do Instagram e os de agendamento somem.
+   whatsapp:    um numero por unidade (so digitos, 55 + DDD + numero), ou uma
+                string unica se a empresa passar a usar um numero so.
+                Fonte: Linktree oficial, linktr.ee/tekfriooficial.
+   agendamento: link completo (https://...). O perfil diz "Agende pelo link".
+   Sem nenhum numero valido, os botoes abrem o Direct do Instagram.
    ========================================================================= */
 const CONFIG = {
-  whatsapp: '',    // TROCAR pelo numero oficial confirmado pela TekFrio
-  agendamento: '', // TROCAR pelo link de agendamento confirmado
+  whatsapp: {
+    'rio-grande': '5553999458966',
+    'sao-jose-do-norte': '5553981454087',
+    torres: '5551982206823',
+  },
+  agendamento: 'https://linktr.ee/tekfriooficial',
   instagram: 'tekfriooficial',
 };
 
@@ -28,23 +34,53 @@ const MESSAGES = {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-  // ---------- Contato: WhatsApp quando houver numero, Instagram enquanto nao ----------
-  const phone = String(CONFIG.whatsapp).replace(/\D/g, '');
-  const hasWhatsApp = /^55\d{10,11}$/.test(phone);
-  const contactUrl = (key) => hasWhatsApp
-    ? `https://wa.me/${phone}?text=${encodeURIComponent(MESSAGES[key] || MESSAGES.geral)}`
-    : `https://ig.me/m/${CONFIG.instagram}`;
+  // ---------- Contato ----------
+  // Botao de uma cidade vai direto ao WhatsApp dela. Os botoes gerais vao direto quando
+  // ha um numero so; com varios, abrem a janela "Escolha sua cidade".
+  const raw = typeof CONFIG.whatsapp === 'string'
+    ? (CONFIG.whatsapp ? { geral: CONFIG.whatsapp } : {})
+    : (CONFIG.whatsapp || {});
+  const phones = {};
+  Object.entries(raw).forEach(([unit, value]) => {
+    const digits = String(value).replace(/\D/g, '');
+    if (/^55\d{10,11}$/.test(digits)) phones[unit] = digits;
+    else if (value) console.warn(`CONFIG.whatsapp.${unit} invalido: use so digitos, com 55 + DDD + numero.`);
+  });
+  const units = Object.keys(phones);
+  const waUrl = (phone, key) => `https://wa.me/${phone}?text=${encodeURIComponent(MESSAGES[key] || MESSAGES.geral)}`;
+  const pretty = (d) => { const local = d.slice(4); return `(${d.slice(2, 4)}) ${local.slice(0, -4)}-${local.slice(-4)}`; };
 
-  $$('[data-wa]').forEach((a) => { a.href = contactUrl(a.dataset.wa); });
-  if (hasWhatsApp) {
-    $$('[data-channel]').forEach((el) => { el.textContent = 'WhatsApp'; });
-    $$('[data-channel-icon]').forEach((use) => use.setAttribute('href', '#i-brand-whatsapp'));
-    const local = phone.slice(4);
-    const pretty = `(${phone.slice(2, 4)}) ${local.slice(0, -4)}-${local.slice(-4)}`;
-    $$('[data-wa-number]').forEach((el) => { el.textContent = pretty; });
-    $$('[data-wa-only]').forEach((el) => { el.hidden = false; });
-  } else if (CONFIG.whatsapp) {
-    console.warn('CONFIG.whatsapp invalido: use so digitos, com 55 + DDD + numero.');
+  const unitsBox = $('.units');
+  const canPick = units.length > 1 && unitsBox && typeof unitsBox.showModal === 'function';
+  const openUnits = (key) => {
+    $$('.units__opt', unitsBox).forEach((opt) => {
+      const phone = phones[opt.dataset.unit];
+      opt.parentElement.hidden = !phone;
+      if (phone) opt.href = waUrl(phone, key);
+    });
+    unitsBox.showModal();
+  };
+
+  $$('[data-wa]').forEach((a) => {
+    const key = a.dataset.wa;
+    if (phones[key]) a.href = waUrl(phones[key], key);
+    else if (units.length === 1) a.href = waUrl(phones[units[0]], key);
+    else if (canPick) a.addEventListener('click', (e) => { e.preventDefault(); openUnits(key); });
+    else if (!units.length) a.href = `https://ig.me/m/${CONFIG.instagram}`;
+    // varios numeros sem suporte a <dialog>: fica o href do HTML (Linktree oficial)
+  });
+
+  const channel = units.length ? 'WhatsApp' : 'Instagram';
+  $$('[data-channel]').forEach((el) => { el.textContent = channel; });
+  $$('[data-channel-icon]').forEach((use) => use.setAttribute('href', units.length ? '#i-brand-whatsapp' : '#i-brand-instagram'));
+  $$('[data-wa-number]').forEach((el) => { const p = phones[el.dataset.waNumber]; el.textContent = p ? pretty(p) : ''; });
+  $$('[data-wa-city]').forEach((el) => { el.hidden = !phones[el.dataset.waCity]; });
+
+  if (unitsBox) {
+    $('.units__close', unitsBox).addEventListener('click', () => unitsBox.close());
+    unitsBox.addEventListener('click', (e) => { if (e.target === unitsBox) unitsBox.close(); });
+    // a conversa abre em outra aba; a janela fecha logo depois
+    $$('.units__opt', unitsBox).forEach((opt) => opt.addEventListener('click', () => setTimeout(() => unitsBox.close(), 150)));
   }
 
   // ---------- Agendamento: so aparece com um link https valido ----------
